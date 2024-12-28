@@ -28,7 +28,7 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: Center(child: StyledText()),
+      child: Center(child: StyledText('Batatão!!')),
     );
   }
 }
