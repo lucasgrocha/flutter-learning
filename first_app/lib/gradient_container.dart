@@ -5,8 +5,8 @@ import 'package:first_app/styled_text.dart';
 // but I will not pass the value right now
 // Alignment? startAlignment;
 
-var startAlignment = Alignment.topLeft;
-var endAlignment = Alignment.bottomRight;
+const startAlignment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
@@ -16,9 +16,9 @@ class GradientContainer extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: const [
+          colors: [
             Colors.deepPurple,
             Colors.deepOrange,
             Colors.indigo,
