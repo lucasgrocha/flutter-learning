@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/styled_text.dart';
 
 // ? is used to tell I intend to use the type
 // but I will not pass the value right now
@@ -10,6 +9,10 @@ const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key, required this.colors});
+
+  // Using multiple constructors for the same class
+  const GradientContainer.colored({super.key})
+      : colors = const [Colors.yellow, Colors.red];
 
   final List<Color> colors;
   // OR
@@ -26,7 +29,10 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: StyledText('Batatão!!'),
+        child: Image.asset(
+          'assets/images/dice-4.png',
+          width: 200,
+        ),
       ),
     );
   }
