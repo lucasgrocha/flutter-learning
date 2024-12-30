@@ -13,7 +13,7 @@ class GradientContainer extends StatelessWidget {
 
   // Using multiple constructors for the same class
   const GradientContainer.colored({super.key})
-      : colors = const [Colors.yellow, Colors.red];
+      : colors = const [Colors.deepPurple, Colors.indigo];
 
   final List<Color> colors;
   // OR
