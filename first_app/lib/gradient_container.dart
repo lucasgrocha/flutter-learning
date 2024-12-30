@@ -9,26 +9,25 @@ const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer({super.key, required this.colors});
+
+  final List<Color> colors;
   // OR
   // GradientContainer({key}): super(key: key);
 
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Colors.deepPurple,
-            Colors.deepOrange,
-            Colors.indigo,
-            Colors.black
-          ],
+          colors: colors,
           begin: startAlignment,
           end: endAlignment,
         ),
       ),
-      child: Center(child: StyledText('Batatão!!')),
+      child: Center(
+        child: StyledText('Batatão!!'),
+      ),
     );
   }
 }
