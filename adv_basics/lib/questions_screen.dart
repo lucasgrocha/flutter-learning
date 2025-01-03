@@ -12,30 +12,43 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQuestion = 0;
+
+  void onTap() {
+    setState(() {
+      if (currentQuestion + 1 < questions.length) {
+        currentQuestion++;
+      }
+    });
+  }
+
   @override
   Widget build(context) {
-    final currentQuestion = questions[0];
-
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            currentQuestion.text,
-            style: TextStyle(
-              color: Colors.white,
+      child: Container(
+        margin: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              questions[currentQuestion].text,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
             ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          ...currentQuestion.answers.map(
-            (answer) {
-              return AnswerButton(answerText: answer, onTap: () {});
-            },
-          )
-        ],
+            SizedBox(
+              height: 30,
+            ),
+            ...questions[currentQuestion].answers.map(
+              (answer) {
+                return AnswerButton(answerText: answer, onTap: onTap);
+              },
+            )
+          ],
+        ),
       ),
     );
   }
