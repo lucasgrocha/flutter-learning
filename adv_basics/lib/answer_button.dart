@@ -10,7 +10,7 @@ class AnswerButton extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-      margin: const EdgeInsets.all(5),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
