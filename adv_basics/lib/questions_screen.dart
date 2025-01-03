@@ -12,12 +12,12 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  var currentQuestion = 0;
+  var currentQuestionIndex = 0;
 
-  void onTap() {
+  void answerQuestion() {
     setState(() {
-      if (currentQuestion + 1 < questions.length) {
-        currentQuestion++;
+      if (currentQuestionIndex + 1 < questions.length) {
+        currentQuestionIndex++;
       }
     });
   }
@@ -33,7 +33,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              questions[currentQuestion].text,
+              questions[currentQuestionIndex].text,
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -42,9 +42,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             SizedBox(
               height: 30,
             ),
-            ...questions[currentQuestion].getShuffledAnswers().map(
+            ...questions[currentQuestionIndex].getShuffledAnswers().map(
               (answer) {
-                return AnswerButton(answerText: answer, onTap: onTap);
+                return AnswerButton(answerText: answer, onTap: answerQuestion);
               },
             )
           ],
